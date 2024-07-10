@@ -4,20 +4,19 @@ import CurrentWeather from "./components/currentWeather/currentWeather";
 import Forecast from "./components/forecast/forecast";
 import './App.css';
 
-const url = process.env.REACT_APP_WEATHER_URL;
-const api_key = process.env.REACT_APP_WEATHER_API_KEY;
-
-const weather_request= `${url}weather?q=${Location}&units=metric&appid=${api_key}`;
-const forecast_request= `${url}forecast?q=${Location}&units=metric&appid=${api_key}`;
-
 function App() {
-
+  const url = process.env.REACT_APP_WEATHER_URL;
+  const api_key = process.env.REACT_APP_WEATHER_API_KEY;
+  
   const[Location,setLocation]=useState('');
   const[WeatherData,setWeatherData]= useState(null);
   const[ShowWeather, setShowWeather] = useState(false);
   const[ForecastData,setForecastData]= useState(null);
   const[showForecast, setShowForecast] = useState(false);
   
+  const weather_request= `${url}weather?q=${Location}&units=metric&appid=${api_key}`;
+  const forecast_request= `${url}forecast?q=${Location}&units=metric&appid=${api_key}`;
+
   const searchLocation = (event: { key: string; }) => {
     if (event.key === 'Enter') {
       axios.get(weather_request)
