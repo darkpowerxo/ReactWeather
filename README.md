@@ -16,3 +16,6 @@ then rename .env.sample to .env and past your api key there
 npm i
 npm start
 ```
+
+
+[try it](https://darkpowerxo.github.io/NextWeather)
